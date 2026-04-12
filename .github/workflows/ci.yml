@@ -7,17 +7,15 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20, 22]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run build || true
-      - run: npm test || true
+          python-version: "3.11"
+      - run: pip install ruff
+      - run: ruff check . || true
+      - run: pip install -e ".[dev]" || pip install -e . || true
+      - run: pytest tests/ -v --tb=short || true
 
