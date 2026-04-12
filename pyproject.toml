@@ -1,35 +1,28 @@
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
-build-backend = "setuptools.build_meta"
+build-backend = "setuptools.backends._legacy:_Backend"
 
 [project]
-name = "agentsec"
+name = "ai-agent-security-testing"
 version = "0.1.0"
-description = "AI Agent Security Testing Framework — red-team AI agents with automated attack scenarios"
+description = "Red-team testing infrastructure using AI agents for security assessment"
 readme = "README.md"
 license = {text = "MIT"}
-requires-python = ">=3.9"
-authors = [{name = "Phoenix Assistant", email = "phoenix@example.com"}]
-keywords = ["ai", "security", "red-team", "llm", "agent", "testing"]
+requires-python = ">=3.10"
+authors = [{name = "Phoenix Assistant"}]
+keywords = ["security","red-team","agents","testing","pentesting"]
 classifiers = [
     "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Topic :: Security",
 ]
-dependencies = [
-    "httpx>=0.27",
-    "rich>=13.0",
-    "jinja2>=3.1",
-    "click>=8.1",
-]
+dependencies = []
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "build"]
+dev = ["pytest>=7.0", "pytest-cov"]
 
 [project.scripts]
-agentsec = "agentsec.cli:main"
+ai-agent-security-testing = "ai_agent_security_testing.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["agentsec*"]
+where = ["src"]

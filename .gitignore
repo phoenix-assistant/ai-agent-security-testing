@@ -1,8 +1,7 @@
 __pycache__/
-*.pyc
 *.egg-info/
 dist/
 build/
-.eggs/
-*.whl
-agentsec-report.*
+.venv/
+*.pyc
+.env
