@@ -1,1 +1,18 @@
-
+{
+  "name": "ai-agent-security-testing",
+  "version": "0.1.0",
+  "description": "AI Agent Security Testing Framework — red-team AI agents with automated attack scenarios",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "license": "MIT"
+}
